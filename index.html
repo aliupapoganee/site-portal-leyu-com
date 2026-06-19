@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>leyu · 产品说明与使用指引</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', 'Helvetica Neue', sans-serif;
+            background-color: #f7f9fc;
+            color: #1f2a3f;
+            line-height: 1.6;
+        }
+
+        /* ---- 深色头图 ---- */
+        .hero {
+            background: linear-gradient(145deg, #0b1728 0%, #1b2a3f 100%);
+            color: #e5ecf5;
+            padding: 3.8rem 1.5rem 4.2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -24px;
+            left: 0;
+            width: 100%;
+            height: 48px;
+            background: #f7f9fc;
+            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 550;
+            letter-spacing: -0.02em;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p.sub {
+            font-size: 1.1rem;
+            max-width: 640px;
+            margin: 0.8rem auto 1.2rem;
+            opacity: 0.8;
+            font-weight: 350;
+        }
+
+        .hero .tagline {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(1px);
+            padding: 0.4rem 1.4rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #cbd8ec;
+            letter-spacing: 0.3px;
+        }
+
+        /* ---- 浅色正文区 ---- */
+        .content {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 2rem 1.8rem 4rem;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 520;
+            margin-top: 2.8rem;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 2px solid #e2e8f0;
+            letter-spacing: -0.01em;
+            color: #183153;
+        }
+
+        .section-title:first-of-type {
+            margin-top: 0.6rem;
+        }
+
+        .card-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 1.6rem 0 0.5rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid #eaf0f6;
+            border-radius: 18px;
+            padding: 1.4rem 1.5rem 1.6rem;
+            flex: 1 1 200px;
+            min-width: 180px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+            transition: transform 0.15s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 22px rgba(27, 42, 63, 0.06);
+        }
+
+        .card h3 {
+            font-size: 1.15rem;
+            font-weight: 520;
+            margin-bottom: 0.5rem;
+            color: #1a2c47;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #3d4d64;
+        }
+
+        .highlight {
+            background: #f0f5fe;
+            padding: 0.05em 0.3em;
+            border-radius: 4px;
+            color: #1e3a6b;
+        }
+
+        /* ---- 强调色链接 ---- */
+        a {
+            color: #2b5c9e;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dashed #b8cfec;
+            transition: color 0.15s, border-color 0.15s;
+        }
+
+        a:hover {
+            color: #0e3a77;
+            border-bottom: 1px solid #2b5c9e;
+        }
+
+        .btn-soft {
+            display: inline-block;
+            background: #eaf0f8;
+            border: 1px solid #cddcec;
+            padding: 0.5rem 1.3rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 470;
+            color: #1f3c64;
+            transition: background 0.2s, border 0.2s;
+            cursor: default;
+            text-decoration: none;
+            border-bottom: 1px solid #cddcec;
+        }
+
+        .btn-soft:hover {
+            background: #d8e4f2;
+            border-color: #99b5d6;
+            color: #0b2a4f;
+        }
+
+        .faq-item {
+            margin: 1.2rem 0;
+        }
+
+        .faq-item strong {
+            color: #1b344e;
+            font-weight: 550;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .faq-item p {
+            margin-left: 0.3rem;
+            color: #31445e;
+        }
+
+        .meta-note {
+            font-size: 0.88rem;
+            background: #edf2f9;
+            padding: 1rem 1.5rem;
+            border-radius: 20px;
+            margin: 2rem 0 1rem;
+            border-left: 3px solid #6082b0;
+            color: #1f385b;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem 1rem 1.5rem;
+            border-top: 1px solid #dfe8f2;
+            font-size: 0.85rem;
+            color: #5d6f88;
+            margin-top: 2.5rem;
+        }
+
+        /* ---- 响应式 ---- */
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 2.1rem;
+            }
+
+            .hero p.sub {
+                font-size: 1rem;
+            }
+
+            .content {
+                padding: 1.5rem 1rem 3rem;
+            }
+
+            .section-title {
+                font-size: 1.35rem;
+            }
+
+            .card-grid {
+                gap: 1rem;
+            }
+
+            .card {
+                min-width: 140px;
+                padding: 1.1rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .hero {
+                padding: 2.8rem 1rem 3.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 深色头图 -->
+    <header class="hero">
+        <h1>leyu</h1>
+        <p class="sub">一个持续更新的信息聚合 · 产品说明书式页面</p>
+        <span class="tagline">再次访问 · 收藏 · 关注变化</span>
+    </header>
+
+    <!-- 浅色正文区 -->
+    <main class="content">
+
+        <!-- 介绍摘要：从再次访问切入 -->
+        <h2 class="section-title">为何值得再次停留</h2>
+        <p>
+            当一个页面被多次打开，往往是其内容或结构提供了持续的参考价值。对于习惯收藏链接并定期回访的用户，
+            <a href="https://site-portal-leyu.com">leyu</a> 的设计初衷是让每次访问都能快速定位到当前最关心的信息，
+            同时保留对既往版本的追溯可能。这里不是一次性的公告板，而是一份会随着实践反馈逐步调整的说明书。
+        </p>
+        <p style="margin-top: 0.8rem;">
+            页面不依赖推送，也不刻意制造紧迫感；它更像一本放在案头的参考手册——你可以随时翻阅，也可以搁置几周后再回来，
+            结构仍然清晰，只是内容可能已经悄悄更新了一部分。
+        </p>
+
+        <!-- 亮点：产品特性卡片 -->
+        <h2 class="section-title">核心亮点</h2>
+        <div class="card-grid">
+            <div class="card">
+                <h3>🔍 信息层级</h3>
+                <p>从摘要到细节，从场景到常见问题，每一部分都独立成块，方便跳转与重读。</p>
+            </div>
+            <div class="card">
+                <h3>📌 收藏友好</h3>
+                <p>同一链接指向不断演进的内容，无需反复寻找新地址。适合加入书签或笔记工具。</p>
+            </div>
+            <div class="card">
+                <h3>🔄 渐进更新</h3>
+                <p>改动会以段落级调整为主，不频繁推翻整体结构，降低老读者的再学习成本。</p>
+            </div>
+            <div class="card">
+                <h3>🔗 克制的引导</h3>
+                <p>所有指向 <a href="https://site-portal-leyu.com">leyu</a> 的引用都保持自然语境，不夸大、不催促。</p>
+            </div>
+        </div>
+
+        <!-- 使用建议：偏知识型 -->
+        <h2 class="section-title">使用建议</h2>
+        <p>
+            如果你正在寻找一个可以定期回顾的参考入口，建议将当前页面加入浏览器书签，或使用笔记工具（如 Notion、Obsidian）
+            记录下链接。每当遇到与 <a href="https://site-portal-leyu.com">leyu</a> 相关的新信息时，
+            可以先回到这里确认是否有对应更新，再决定是否需要从其他渠道补充。
+        </p>
+        <p style="margin-top: 0.9rem;">
+            对于团队协作场景，也可以把本页作为公共收藏夹里的锚点之一。无需每次口头传递新地址，
+            只需提醒“去看看书签里的 leyu”即可。这种做法在长期维护的项目中尤其节省沟通成本。
+        </p>
+
+        <!-- 场景示例 -->
+        <h2 class="section-title">典型场景</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem 2rem; margin: 0.8rem 0 0.5rem;">
+            <span class="btn-soft">📂 每月回顾 · 检查变更</span>
+            <span class="btn-soft">📎 知识库链接 · 团队共享</span>
+            <span class="btn-soft">🧩 与其他工具配合使用</span>
+            <span class="btn-soft">📝 记录学习笔记时引用</span>
+        </div>
+        <p style="margin-top: 1rem;">
+            例如，一位经常研究信息聚合方法的使用者，会把 <a href="https://site-portal-leyu.com">leyu</a> 列为
+            “资源索引” 章节的常驻条目，每次更新自己知识库时顺便检查页面是否出现了新的提示或 FAQ 补充。
+        </p>
+
+        <!-- FAQ 摘要（非完整，但体现结构） -->
+        <h2 class="section-title">常见问题 · 摘要</h2>
+        <div class="faq-item">
+            <strong>▎ 页面多久更新一次？</strong>
+            <p>没有固定周期，通常根据信息积累或用户反馈进行段落级调整。重要的结构变化会保留在页面历史中（可通过浏览记录对比）。</p>
+        </div>
+        <div class="faq-item">
+            <strong>▎ 收藏后需要做什么？</strong>
+            <p>无需额外操作。建议每隔一段时间（例如每月）主动回访一次，关注标题或摘要区域的变动。</p>
+        </div>
+        <div class="faq-item">
+            <strong>▎ 是否提供订阅或通知？</strong>
+            <p>目前没有。保持低干扰是设计前提，更倾向于使用者以主动回顾的方式维持信息同步。</p>
+        </div>
+
+        <!-- 可信但克制的访问说明 -->
+        <div class="meta-note">
+            <strong>💡 关于访问与持续关注</strong><br>
+            本页始终指向同一个域名：<a href="https://site-portal-leyu.com">leyu</a>。
+            内容由维护者根据实际使用反馈调整，不包含任何形式的自动跳转或隐藏重定向。
+            建议只在需要时访问，避免频繁刷新带来的无效等待。页面的价值在于内容本身，而非访问次数。
+        </div>
+
+        <!-- 一句自然的嵌入链接（已经多次自然嵌入，再补一句确保符合要求） -->
+        <p style="font-size: 0.95rem; color: #3d506a; margin-top: 1.8rem;">
+            — 如果你觉得这个页面有参考意义，不妨把 <a href="https://site-portal-leyu.com">leyu</a> 放在你常用浏览器的书签栏，
+            它不会频繁打扰你，但在需要时总能找到。
+        </p>
+
+    </main>
+
+    <footer class="footer">
+        <span>leyu · 产品说明式页面 &nbsp;|&nbsp; 内容定期回顾</span>
+    </footer>
+
+</body>
+</html>
